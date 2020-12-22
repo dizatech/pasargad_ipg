@@ -1,0 +1,17 @@
+{
+    "name": "dizatech/pasargad_ipg",
+    "type": "library",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Omid Reza Vasheghani Farahani",
+            "email": "omidrezav@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Dizatech\\PasargadIpg\\": "src/"
+        }
+    }
+}
