@@ -8,6 +8,7 @@ class PasargadIpg{
     protected $terminal_code;
     protected $private_key;
     protected $base_url = 'https://pep.shaparak.ir/Api/v1/Payment/';
+    protected $verify_ssl = TRUE;
 
     public function __construct( $args=[] )
     {
@@ -15,6 +16,10 @@ class PasargadIpg{
         $this->terminal_code = $args['terminal_code'];
         $this->private_key = $args['private_key'];
     }
+    
+    protected function verifySSL( bool $verify=TRUE ){
+		$this->verify_ssl = $verify;
+	}
     
     public function getToken( $amount, $invoice_number, $invoice_date, $redirect_address )
     {
@@ -133,6 +138,10 @@ class PasargadIpg{
         curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
+        if( !$this->verify_ssl ){
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		}
 
         $headers[] = 'Content-Type: application/json';
         $headers[] = 'Accept: application/json';
