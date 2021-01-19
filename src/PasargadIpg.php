@@ -17,7 +17,7 @@ class PasargadIpg{
         $this->private_key = $args['private_key'];
     }
     
-    protected function verifySSL( bool $verify=TRUE ){
+    public function verifySSL( bool $verify=TRUE ){
 		$this->verify_ssl = $verify;
 	}
     
