@@ -94,6 +94,7 @@ class PasargadIpg{
         $response = new \stdClass();
         if( $result->IsSuccess ){
             $response->status = 'success';
+            $response->shaparak_ref = $result->ShaparakRefNumber;
         }
         else{
             $response->status = 'error';
