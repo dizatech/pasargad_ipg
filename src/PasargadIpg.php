@@ -58,7 +58,7 @@ class PasargadIpg
                     $response = json_decode($response->getBody()->getContents());
                     if ($response && isset($response->resultCode) && $response->resultCode == 0) {
                         $result->status = 'success';
-                        $result->token = $response->data->urlId;
+                        $result->url_id = $response->data->urlId;
                         $result->payment_url = $response->data->url;
                     }
                 }
